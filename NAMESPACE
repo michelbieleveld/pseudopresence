@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("methods", "as")
+import("raster")
+import("sp")
+import("biomod2")
