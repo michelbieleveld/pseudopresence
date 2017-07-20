@@ -200,7 +200,7 @@ setMethod(".fun.presences.sampling",
             values.presences <- raster::extract(expls,sp)
             values.candidates <- raster::extract(expls,points)
             selected <- NULL
-            for (i in seq(1,min(np.points,nrow(values.candidates))))
+            for (i in seq(1,min(np.points,nrow(values.candidates)-1)))
             {
               d <- f(apply(values.candidates,1,function(x) {sum(colSums(values.presences - x)^2)} ))
               values.presences <- rbind(values.presences,values.candidates[d,])
