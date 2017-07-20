@@ -38,7 +38,7 @@
                   similar = .fun.presences.sampling(sp.presenceonly, env, cell.distance, np.points, which.min),
                   dissimilar = .fun.presences.sampling(sp.presenceonly, env, cell.distance, np.points, which.max))
 
-    out <- SpatialPointsDataFrame(out,data.frame(resp=rep(1,length(out))),proj4string=crs(env))
+    out <- SpatialPointsDataFrame(out,data.frame(resp=rep(1,length(out))),proj4string=crs(env),match.ID = FALSE)
     if (length(out) < np.points) {
       warning(paste("Requested ",np.points," but only returned ",length(out),", try increasing cell.distance",sep=""))
     }
