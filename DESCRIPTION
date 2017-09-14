@@ -4,7 +4,7 @@ Title: Pseudo presence generator for Species Distribution Modeling
 Version: 0.1.0
 Author: Michel J.M. Bieleveld
 Maintainer: Michel J.M. Bieleveld <michel.bieleveld@gmail.com>
-Depends: raster, methods, sp, biomod2
+Depends: raster, methods, sp, biomod2, dplyr
 Description: Functions for the generation of pseudo presences to be used 
   for species distribution modeling.
 License: MIT + file LICENSE

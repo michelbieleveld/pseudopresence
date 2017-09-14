@@ -19,6 +19,8 @@ pseudo.presences.sampling(sp, resp, env, strategy = "random",
 \item{cell.distance}{Maximum cell.distance from presence point to be used for pseudo presence generation}
 
 \item{np.points}{Number of pseudo presence points to generate}
+
+\item{quant.SRE}{Quant parameter of sre function.}
 }
 \value{
 a SpatialPointsDataFrame object that will be given to BIOMOD_FormatingData function

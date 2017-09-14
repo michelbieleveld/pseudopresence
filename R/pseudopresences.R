@@ -30,7 +30,7 @@
   sp.remainder = sp[-mask,]
 
   if((np.points <= 0 | cell.distance <= 0)){
-    out <- sp
+    out <- sp[NULL,]
   } else {
     out <- switch(strategy,
                   random = .random.presences.sampling( sp.presenceonly, env, cell.distance, np.points ),
@@ -42,7 +42,6 @@
     if (length(out) < np.points) {
       warning(paste("Requested ",np.points," but only returned ",length(out),", try increasing cell.distance",sep=""))
     }
-    out <- rbind(out,sp.remainder)
   }
   return(out)
 }
@@ -133,8 +132,7 @@ setMethod(".get_near_col_row",
             xy <- unique(data.frame(x,y))
             xy$cell <- env.mask[cellFromRowCol(env.mask,xy$y,xy$x)]
             xy <- xy[which(!is.na(xy$cell)),c("x","y")]
-            all <- rbind(xy,xy.orig)
-            all <- all[!duplicated(all,fromLast = FALSE),]
+            all <- dplyr::anti_join(xy,xy.orig,by = c("x", "y"))
             rownames(all) <- NULL
             all
           })
